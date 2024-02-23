@@ -1,4 +1,4 @@
-from langchain.llms import OpenAI
+from langchain_openai import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain, SequentialChain
 from dotenv import load_dotenv
@@ -36,7 +36,7 @@ chain = SequentialChain(
     output_variables=["test", "code"],
 )
 
-result = chain({"language": args.language, "task": args.task})
+result = chain.invoke({"language": args.language, "task": args.task})
 
 # print(code_result)
 # print(code_result["code"])
